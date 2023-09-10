@@ -21,7 +21,7 @@ export const UsersTable = () => {
   const usersPerPage = 10
   const maxPageButtons = 5
 
-  const handleSearch = (term: any) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term)
     setCurrentPage(1) 
   }

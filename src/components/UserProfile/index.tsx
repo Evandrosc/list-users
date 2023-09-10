@@ -4,8 +4,8 @@ import { getUserByUserName } from '../../api/api'
 import { User } from '../../Tipagem/User'
 import '../../style/UserProfile.scss'
 
-function createInfoArray(userData: User | null): { label: string, value: any }[] {
-  const infoArray: { label: string, value: any }[] = []
+function createInfoArray(userData: User | null): { label: string, value: string }[] {
+  const infoArray: { label: string, value: string }[] = []
 
   addToInfo(infoArray, 'Gender', userData?.gender)
   addToInfo(infoArray, 'Email', userData?.email)
@@ -16,15 +16,15 @@ function createInfoArray(userData: User | null): { label: string, value: any }[]
   return infoArray
 }
 
-function addToInfo(array: any[], label: string, value: any) {
+function addToInfo(array: { label: string, value: string }[], label: string, value: string | undefined) {
   if (value) {
     array.push({ label, value })
   }
 }
 
-function createLocationArray(locationData: any): { label: string, value: any }[] {
-  const locationArray: { label: string, value: any }[] = []
-
+function createLocationArray(locationData: any): { label: string, value: string | number }[] {
+  const locationArray: { label: string, value: string | number }[] = []
+  
   if (locationData?.street) {
     addToLocationInfo(locationArray, 'Street Number', locationData.street.number)
     addToLocationInfo(locationArray, 'Street Name', locationData.street.name)
@@ -48,15 +48,14 @@ function createLocationArray(locationData: any): { label: string, value: any }[]
   return locationArray
 }
 
-
-function addToLocationInfo(array: any[], label: string, value: any) {
+function addToLocationInfo(array: { label: string, value: string | number }[], label: string, value: string | number) {
   if (value) {
     array.push({ label, value })
   }
 }
 
-function createLoginArray(loginData: any): { label: string, value: any }[] {
-  const loginArray: { label: string, value: any }[] = []
+function createLoginArray(loginData: any): { label: string, value: string }[] {
+  const loginArray: { label: string, value: string }[] = []
 
   addToLoginInfo(loginArray, 'UUID', loginData?.uuid)
   addToLoginInfo(loginArray, 'Username', loginData?.username)
@@ -71,9 +70,7 @@ function createLoginArray(loginData: any): { label: string, value: any }[] {
 
 
 function addToLoginInfo(array: any[], label: string, value: any) {
-  if (value) {
-    array.push({ label, value })
-  }
+  if (value) array.push({ label, value })
 }
 
 const UserProfile = () => {
