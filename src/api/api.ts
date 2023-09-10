@@ -3,7 +3,7 @@ import { User } from '../Tipagem/User'
 
 const BASE_URL = 'https://randomuser.me/api/'
 
-export let usersCache: User[] = [] // Array para armazenar os resultados de getUsers
+export let usersCache: User[] = []
 
 /**
  * Obtém um ou mais usuários da API randomuser.me e armazena em cache.

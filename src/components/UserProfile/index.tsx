@@ -92,7 +92,7 @@ const UserProfile = () => {
         const user = await getUserByUserName(username)
         setUserData(user)
       } catch (error) {
-        navigate('/error') // Redireciona para a página de erro
+        navigate('/error')
       }
     }
 

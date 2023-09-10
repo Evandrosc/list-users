@@ -11,7 +11,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value
     setSearchTerm(term)
-    onSearch(term) // Chama a função de pesquisa à medida que o usuário digita
+    onSearch(term)
   }
 
   return (

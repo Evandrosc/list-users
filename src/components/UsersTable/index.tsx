@@ -19,54 +19,45 @@ export const UsersTable = () => {
   })
 
   const usersPerPage = 10
-  const maxPageButtons = 5 // Número máximo de botões numerados a serem exibidos
+  const maxPageButtons = 5
 
-  // Função para atualizar o estado de pesquisa
   const handleSearch = (term: any) => {
     setSearchTerm(term)
-    setCurrentPage(1) // Quando a pesquisa é atualizada, volte para a primeira página
+    setCurrentPage(1) 
   }
 
-  // Filtrar os dados com base no termo de pesquisa
   const filteredData = usersCache
     ?.filter((user) =>
       user.name.first.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
-  // Calcular o número total de páginas com base nos resultados filtrados
   const totalPages = Math.ceil((filteredData?.length || 0) / usersPerPage)
 
-  // Calcular o índice do último usuário exibido com base na página atual
   const indexOfLastUser = currentPage * usersPerPage
   const indexOfFirstUser = indexOfLastUser - usersPerPage
 
-  // Função para navegar para a próxima página
   const nextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1)
     }
   }
 
-  // Função para navegar para a página anterior
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1)
     }
   }
 
-  // Calcular o índice do primeiro botão numerado a ser exibido
   const firstPageButton = Math.max(
     Math.min(currentPage - Math.floor(maxPageButtons / 2), totalPages - maxPageButtons + 1),
     1
   )
 
-  // Calcular o índice do último botão numerado a ser exibido
   const lastPageButton = Math.min(
     firstPageButton + maxPageButtons - 1,
     totalPages
   )
 
-  // Gerar botões numerados de página
   const pageButtons = []
   for (let i = firstPageButton; i <= lastPageButton; i++) {
     pageButtons.push(
@@ -113,7 +104,6 @@ export const UsersTable = () => {
             ))}
         </tbody>
       </table>
-      {/* Renderizar botões de página numerados */}
       <div className='pagination'>
         <button onClick={prevPage} disabled={currentPage === 1} className='btnNextPage'>
           <img src={setaEsquerda} alt='Anterior' />
