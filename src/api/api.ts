@@ -1,9 +1,9 @@
-import axios from "axios";
-import { User } from "../Tipagem/User";
+import axios from 'axios'
+import { User } from '../Tipagem/User'
 
-const BASE_URL = "https://randomuser.me/api/";
+const BASE_URL = 'https://randomuser.me/api/'
 
-export let usersCache: User[] = []; // Array para armazenar os resultados de getUsers
+export let usersCache: User[] = [] // Array para armazenar os resultados de getUsers
 
 /**
  * Obtém um ou mais usuários da API randomuser.me e armazena em cache.
@@ -17,15 +17,15 @@ export async function getUsers(results = 1): Promise<User[]> {
             params: {
                 results,
             },
-        });
+        })
         if (response.status !== 200) {
-            throw new Error("Erro na solicitação à API");
+            throw new Error('Erro na solicitação à API')
         }
-        usersCache = response.data.results;
+        usersCache = response.data.results
         
-        return usersCache;
+        return usersCache
     } catch (error) {
-        throw new Error("Erro ao buscar usuários: " + (error as Error).message);
+        throw new Error('Erro ao buscar usuários: ' + (error as Error).message)
     }
 }
 
@@ -37,12 +37,12 @@ export async function getUsers(results = 1): Promise<User[]> {
  */
 export async function getUserByUserName(username: string): Promise<User> {
     try {
-        const user = usersCache.find((u) => u.login.username === username);
+        const user = usersCache.find((u) => u.login.username === username)
         if (!user) {
-            throw new Error("Usuário não encontrado no cache");
+            throw new Error('Usuário não encontrado no cache')
         }
-        return user;
+        return user
     } catch (error) {
-        throw new Error("Erro ao buscar usuário por username: " + (error as Error).message);
+        throw new Error('Erro ao buscar usuário por username: ' + (error as Error).message)
     }
 }
