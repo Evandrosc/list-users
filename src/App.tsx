@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import './App.css'
 import UsersTable from './components/UsersTable/UsersTable'
-import { ReactQueryDevtools } from 'react-query/devtools'
+import './style/Global.scss'
+import './style/App.scss'
 
 const queryClient = new QueryClient()
 
