@@ -3,7 +3,7 @@ import './App.css'
 import UsersTable from './components/UsersTable/UsersTable'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function App() {
   
