@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  button {
+    width: 50px;
+    height: 50px;
+    margin: 50px 10px 0 10px;
+    border-radius: 50%;
+    border: 1px solid #811AC0;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button:hover {
+    background-color: #811AC0;
+  }
+
+  .btnNextPage,
+  .page-button {
+    background-color: transparent;
+  }
+
+  .active {
+    background-color: #811AC0;
+  }
+}
