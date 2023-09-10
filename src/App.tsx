@@ -10,13 +10,10 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-    <>
-     <h1>List Users</h1>
-     <table>
-        <UsersTable/>
-     </table>
-    </>
-    <ReactQueryDevtools initialIsOpen={false} />
+      <div className='app'>
+        <h1 className='title-list-users'>List Users</h1>
+        <UsersTable />
+      </div>
     </QueryClientProvider>
   )
 }
