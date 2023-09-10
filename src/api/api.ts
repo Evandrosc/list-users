@@ -1,4 +1,5 @@
 import axios from "axios";
+import { User } from "../Tipagem/User";
 
 const BASE_URL = "https://randomuser.me/api/";
 
