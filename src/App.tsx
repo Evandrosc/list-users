@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
-import './App.css'
 import UsersTable from './components/UsersTable/UsersTable'
 import './style/Global.scss'
 import './style/App.scss'
@@ -7,8 +6,6 @@ import './style/App.scss'
 const queryClient = new QueryClient()
 
 function App() {
-  
-
   return (
     <QueryClientProvider client={queryClient}>
       <div className='app'>
